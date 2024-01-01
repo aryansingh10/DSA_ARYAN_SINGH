@@ -2,10 +2,10 @@
 using namespace std;
 
 void print(int arr[],int size){
-    cout<<"The size of Array is"<<size<<endl;
+    cout<<"The size of Array is"<<size<<" ";
     for (int i = 0; i < size; i++)
     {
-        cout<<arr[i]<<" ";
+        cout<<arr[i]<<endl;
     }cout<<endl;
     
 }
@@ -28,7 +28,7 @@ bool linearSearch(int arr[], int size, int key) {
 int main() {
     int arr[5] = {1, 2, 5, 45, 24};
     int size = 5;
-    int key = 5; // Corrected the key
+    int key = 25; // Corrected the key
     int ans = linearSearch(arr, size, key);
     
     if (ans) {
