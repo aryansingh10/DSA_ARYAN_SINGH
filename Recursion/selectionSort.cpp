@@ -4,8 +4,7 @@ using namespace std;
 void selectionSort(int arr[],int size,int start=0){
       if (start >= size - 1) {
         // Debug statement
-        cout << "Base case reached, returning." << endl;
-        return;
+        return;//Kabhi start size -1 se badh gaya to 
     }
     int minindex=start;
     for (int i = start ; i < size; i++)
