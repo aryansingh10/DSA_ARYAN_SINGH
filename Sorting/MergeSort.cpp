@@ -47,10 +47,9 @@ using namespace std;
         {
              arr[mainArrayIndex++]=second[index2++];
         }
-        
-        
-        
     }
+      delete[] first;
+    delete[] second;
     
                  
      }
@@ -72,7 +71,7 @@ void mergeSort(int *arr,int s,int e){
  
 int main()
 {
-    int arr[5]={233,34,31,3434,2};
+    int arr[5]={233,34,31,344,2};
     int size=5;
 
      mergeSort(arr,0,size-1);
