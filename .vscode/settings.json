@@ -70,4 +70,12 @@
         "streambuf": "cpp",
         "thread": "cpp"
     }
+
+    
 }
+
+{
+    "files.exclude": {
+        "**/*.exe": true
+    }
+  }
