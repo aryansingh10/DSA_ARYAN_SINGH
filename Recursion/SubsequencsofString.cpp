@@ -7,7 +7,7 @@ void solve(string str, string output, int index, string &ans) {
         return;
     }
 
-    // Exclude
+    // Excludea
     solve(str, output, index + 1, ans);
 
     // Include
@@ -25,8 +25,7 @@ int main() {
     int index = 0;
 
     solve(str, output, index, ans);
-
-    cout << "Subsets: " << ans << endl;
+    cout << "Subsets: " << ans<<" " << endl;
 
     return 0;
 }
