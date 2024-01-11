@@ -38,24 +38,27 @@ int partition(int arr[],int s,int e){
 }
 
 void quicksort(int arr[],int s,int e){
+    //basecase
     if (s>=e)
     {
         return;
     }
 
     int p=partition(arr,s,e);
+    //left side partition
     quicksort(arr,s,p-1);
+    //right Side PArtition
     quicksort(arr,p+1,e);
     
 }
 int main()
 {
     int arr[10] = {1, 34, 33, 43, 31, 312, 434, 3, 2, 556};
-    int size = 10;  // Directly initialize the size of the array
+    int size = 10; 
 
     quicksort(arr, 0, size - 1);
 
-    // Print the sorted array
+    
     for (int i = 0; i < size; i++) {
         cout << arr[i] << " ";
     }
