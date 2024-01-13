@@ -1,0 +1,14 @@
+#include <bits/stdc++.h> 
+int firstMissing(int arr[], int n){
+
+     unordered_set<int> numSet(arr, arr + n);
+
+    // Start from 1 and find the first missing positive integer
+    int i = 1;
+    while (numSet.count(i) > 0) {
+        i++;
+    }
+
+    return i;
+}
+

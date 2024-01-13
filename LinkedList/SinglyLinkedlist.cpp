@@ -1,4 +1,5 @@
 #include <iostream>
+#include<map>
 using namespace std;
 
 class Node
@@ -108,6 +109,55 @@ public:
     }
 };
 
+bool FloydCycleDetectLoop(Node* head){
+    if (head==NULL)
+    {
+        return false;
+    }
+    Node*slow=head;
+    Node*fast=head;
+    while (slow!=NULL && fast!=NULL)
+    {
+        fast=fast->next;
+        if (fast->next!=NULL)
+        {
+            fast=fast->next;
+        }
+        slow=slow->next;
+
+        if (fast==slow)     
+        {
+            return slow;
+        }
+    }
+    return false;
+}
+
+bool DetectLoop(Node*head){
+
+    if (head==NULL)
+    {
+        return false;
+    }
+    
+     map<Node*, bool> visited;
+     Node*temp=head;
+     while (temp!=NULL)
+     {
+        if(visited[temp]==true){
+               cout<<"position" <<temp->data<<endl;
+            return true;
+         
+
+        }
+        visited[temp]=true;
+        temp=temp->next;
+     }
+
+     return false;
+     
+}
+
 int main()
 {
     Node *node1 = new Node(10);
@@ -117,19 +167,41 @@ int main()
     Node *head = node1;
     Node *tail = node1;
     // head->print(head);
-    // head->insertAtHead(head, 12);
-    // head->print(head);
-    head->print(head);
-    tail->insertAtTail(tail, 22);
-    tail->print(head);
-
-    tail->insertAtAnyPosition(head, tail, 2, 32);
-    tail->print(head);
-    tail->insertAtAnyPosition(head, tail, 4, 33);
-    tail->print(head);
+    head->insertAtHead(head, 12);
     
-    tail->Delete(4,head);
- tail->print(head);
+    // head->print(head);
+    // head->print(head);
+    tail->insertAtTail(tail, 22);
+    tail->next=head->next;
+
+    // tail->print(head);
+    // bool ans= DetectLoop(head);
+    // if (ans)
+    // {
+    //     cout<<"Loop EXist in given LL"<<endl;
+    // }else
+    // {
+    //     cout<<"Loop do not exist"<<endl;
+    // }
+
+    bool anss=FloydCycleDetectLoop(head);
+    if(anss){
+        cout<<"Loop EXist in given LL"<<endl;
+    }else
+    {
+       cout<<"Loop do not exist"<<endl;
+    }
+    
+    
+    
+
+    // tail->insertAtAnyPosition(head, tail, 2, 32);
+    // tail->print(head);
+    // tail->insertAtAnyPosition(head, tail, 4, 33);
+    // tail->print(head);
+    
+    // tail->Delete(4,head);
+//  tail->print(head);
 
     return 0;
 }
