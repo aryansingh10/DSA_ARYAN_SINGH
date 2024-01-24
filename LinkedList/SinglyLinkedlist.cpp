@@ -109,10 +109,10 @@ public:
     }
 };
 
-bool FloydCycleDetectLoop(Node* head){
+Node* FloydCycleDetectLoop(Node* head){
     if (head==NULL)
     {
-        return false;
+        return NULL;
     }
     Node*slow=head;
     Node*fast=head;
@@ -127,10 +127,12 @@ bool FloydCycleDetectLoop(Node* head){
 
         if (fast==slow)     
         {
+             cout<<"Cycle exist at "<<slow->data<<endl;
             return slow;
+           
         }
     }
-    return false;
+    return NULL;
 }
 
 bool DetectLoop(Node*head){
@@ -156,6 +158,33 @@ bool DetectLoop(Node*head){
 
      return false;
      
+}
+
+Node* GetStartingNode(Node*head){
+    if (head==NULL)
+    {
+        return NULL;
+    }
+    Node* intersection=FloydCycleDetectLoop(head);
+    Node*slow=head;
+    while (slow!=intersection)
+    {
+        slow=slow->next;
+        intersection=intersection->next;
+    }
+    cout<<"Starting node of loop is"<<slow->data<<endl;
+    return slow;
+}
+
+void RemoveLoop(Node*head){
+    Node*StartLoop=GetStartingNode(head);
+    Node* temp=StartLoop;
+    while (temp->next!=StartLoop)
+    {
+        temp=temp->next;
+    }
+    temp->next=NULL;
+    
 }
 
 int main()
@@ -184,17 +213,31 @@ int main()
     //     cout<<"Loop do not exist"<<endl;
     // }
 
-    bool anss=FloydCycleDetectLoop(head);
-    if(anss){
-        cout<<"Loop EXist in given LL"<<endl;
-    }else
-    {
-       cout<<"Loop do not exist"<<endl;
-    }
-    
-    
-    
+    // Node*ans=FloydCycleDetectLoop(head);
+    // if (ans)
+    // {
+    //     cout<<"Cycle Exist"<<endl;
+    //     GetStartingNode(head);
+    // }
+    // else
+    // {
+    //     cout<<"Cycle do not exist"<<endl;
+    // }
 
+    RemoveLoop(head);
+Node*anss=FloydCycleDetectLoop(head);
+if (anss)
+{
+    cout<<"Loop exist"<<endl;
+}else
+{
+     cout<<"Cycle do not exist"<<endl;
+}
+
+
+   
+    
+    
     // tail->insertAtAnyPosition(head, tail, 2, 32);
     // tail->print(head);
     // tail->insertAtAnyPosition(head, tail, 4, 33);
