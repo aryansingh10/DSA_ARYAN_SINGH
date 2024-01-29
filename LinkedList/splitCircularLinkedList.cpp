@@ -9,7 +9,7 @@ void splitCircularList(Node *head)
     }
     Node* head1_ref=head;
     Node*head2_ref=slow->next;
-    slow->next=head1_ref;
+    slow->next=head1_ref ;
 
     Node * curr=head2_ref;
     while(curr->next!=head){
