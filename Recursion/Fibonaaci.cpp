@@ -1,3 +1,5 @@
+#include<iostream>
+using namespace std;
 class Solution {
 public:
     int fib(int n) {
@@ -14,3 +16,11 @@ public:
    return ans;
     }
 };
+int main(){
+    Solution s;
+    for (int i = 0; i < 10; i++)
+    {
+        cout<<s.fib(i)<<" ";
+    }cout<<endl;
+    
+}
