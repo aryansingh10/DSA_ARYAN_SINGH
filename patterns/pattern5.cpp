@@ -22,7 +22,6 @@ int main(){
     return 0;
 }
 // output
-/tmp/V6ktbS2ABt.o
 /*5
 1
 22
