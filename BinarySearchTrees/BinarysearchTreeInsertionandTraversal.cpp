@@ -15,6 +15,41 @@ class Node{
     }
 };
 
+void inorder(Node* root) {
+    //base case
+    if(root == NULL) {
+        return ;
+    }
+
+    inorder(root->left);
+    cout << root-> data << " ";
+    inorder(root->right);
+
+}
+
+void preorder(Node* root) {
+    //base case
+    if(root == NULL) {
+        return ;
+    }
+
+    cout << root-> data << " ";
+    preorder(root->left);
+    preorder(root->right);
+
+}
+
+void postorder(Node* root) {
+    //base case
+    if(root == NULL) {
+        return ;
+    }
+
+    postorder(root->left);
+    postorder(root->right);
+    cout << root-> data << " ";
+
+}
 
 
 Node * insertIntoBST(Node* root,int data){
@@ -88,5 +123,7 @@ int main()
     Node * root=NULL;
     getInput(root);
     levelOrderTraversal(root);
+    cout<<"Inorder Traversal is:"<<endl;
+    inorder(root);
     return 0;
 }
