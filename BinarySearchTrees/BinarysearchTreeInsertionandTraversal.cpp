@@ -68,6 +68,64 @@ Node * insertIntoBST(Node* root,int data){
     return root;    
 }
 
+
+Node* minvalue(Node* root){
+    Node* temp=root;
+    while (temp->left!=NULL)
+    {
+        temp=temp->left;
+    }
+    return temp;
+}
+
+Node* maxValue(Node* root){
+    Node* temp=root;
+    while (temp->right!=NULL)
+    {
+        temp=temp->right;
+    }
+    return temp;
+}
+
+Node* NodetoDelete(Node* root,int data){
+    if(root==NULL){
+        return root;
+    }
+    if(root->data==data){
+        if(root->left==NULL && root->right==NULL){
+            delete root;
+            return NULL;
+        }
+        if (root->left!=NULL && root->right==NULL)
+        {
+            Node* temp=root->left;
+            delete root;
+            return temp;
+        }
+        if (root->right!=NULL && root->left==NULL)
+        {
+            Node* temp=root->right;
+            delete root;
+            return temp;
+        }
+
+        //If the node has two children
+        if (root->left!=NULL && root->right!=NULL)
+        {
+            Node* mini=minvalue(root->right);
+            root->data=mini->data;
+            root->right=NodetoDelete(root->right,mini->data);
+            return root;
+        }
+        
+    }else if(root->data>data){
+        root->left=NodetoDelete(root->left,data);
+        }else
+        {
+            root->right=NodetoDelete(root->right,data);
+        }
+}
+
 void levelOrderTraversal(Node *& root){
     queue<Node*>q;
     q.push(root);
@@ -125,5 +183,11 @@ int main()
     levelOrderTraversal(root);
     cout<<"Inorder Traversal is:"<<endl;
     inorder(root);
+
+    NodetoDelete(root,5);
+     levelOrderTraversal(root);
+    cout<<"Inorder Traversal is:"<<endl;
+    inorder(root);
+
     return 0;
 }
