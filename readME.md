@@ -1,0 +1,2 @@
+# Data Structures and Algorithms Questions Repository
+Welcome to my Data Structures and Algorithms (DSA) Questions Repository! In this repository, you will find a collection of DSA questions covering various topics and concepts. These questions are designed to help you practice and improve your problem-solving skills in algorithms and data structures.
