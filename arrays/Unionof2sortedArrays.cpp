@@ -1,7 +1,6 @@
 
-
 #include <bits/stdc++.h>
-vector < int > sortedArray(vector < int > a, vector < int > b) {
+vector< int > sortedArray(vector < int > a, vector < int > b) {
     
     int n=a.size();
     int m=b.size();

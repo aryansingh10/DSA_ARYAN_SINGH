@@ -62,7 +62,7 @@ class Solution{
         if(a[i]==ele){
             count2++;
         }
-    }
+    } 
     
     if(count2>size/2){
         return ele;
