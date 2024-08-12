@@ -28,7 +28,7 @@ class Solution{
     //  map<int,int> mapping;
      
     //  for(int i=0;i<size;i++){
-    //      mapping[a[i]]++;//Store  the count;
+    //      mapping[a[i]]++ ;//Store  the count;
     //  }
      
     //  for(auto it:mapping){

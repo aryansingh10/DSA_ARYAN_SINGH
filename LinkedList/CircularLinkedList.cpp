@@ -97,7 +97,7 @@ int main()
     insertNode(tail,5,7);
     print(tail);
 
-    DeleteNode(tail,5);
+    // DeleteNode(tail,5);
     print(tail);
     return 0;
 }

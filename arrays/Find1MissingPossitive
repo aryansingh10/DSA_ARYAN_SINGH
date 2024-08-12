@@ -9,6 +9,6 @@ int firstMissing(int arr[], int n){
         i++;
     }
 
-    return i;
+    return i; 
 }
 

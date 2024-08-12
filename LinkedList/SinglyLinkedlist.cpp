@@ -148,8 +148,7 @@ bool DetectLoop(Node*head){
      {
         if(visited[temp]==true){
                cout<<"position" <<temp->data<<endl;
-            return true;
-         
+            return true;         
 
         }
         visited[temp]=true;
